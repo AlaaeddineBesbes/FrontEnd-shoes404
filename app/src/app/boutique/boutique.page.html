@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <span *ngIf="boutique" ngDefaultControl [(ngModel)]="title">{{boutique.title}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="boutique" routerLink="/boutique-edit/{{boutique._id}}">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="boutique" routerLink="/categorie-add/{{boutique._id}}">
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <span *ngIf="boutique" ngDefaultControl [(ngModel)]="title">{{boutique.description}}</span>
+  </ion-item>
+
+  <ion-list *ngFor="let categorie of categories">
+
+    <ion-card button="true" routerLink="/categorie/{{categorie._id}}">>
+      <ion-card-header>
+        <ion-card-title>{{categorie.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{categorie.description}}
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
+
+
+
+</ion-content>

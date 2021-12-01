@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/"><ion-icon slot="icon-only" name="home"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>
+      <span *ngIf="categorie" ngDefaultControl [(ngModel)]="title">Catégorie : {{categorie.title}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()"> <ion-icon slot="icon-only" name="save"></ion-icon></ion-button>
+      <ion-button (click)="delete()"> <ion-icon slot="icon-only" name="trash"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input value="{{categorie.title}}" rows="10" *ngIf="categorie" ngDefaultControl [(ngModel)]="title"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-textarea value="{{categorie.description}}" rows="5" *ngIf="categorie" ngDefaultControl [(ngModel)]="description"></ion-textarea>
+  </ion-item>
+    
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let produit of produits" col-6 no-padding>
+        <ion-card *ngIf="categorie._id===produit.categorieID" button="true" routerLink="/produit/{{produit._id}}">
+          <img src="../../assets/images/produit.jpg" />
+          <ion-card-header>
+            <ion-card-subtitle>{{produit.prix}} €</ion-card-subtitle>
+            <ion-card-title>{{produit.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content >
+            {{produit.description}} 
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

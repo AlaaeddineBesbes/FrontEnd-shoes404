@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/"><ion-icon slot="icon-only" name="home"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>
+      <span *ngIf="produit" ngDefaultControl [(ngModel)]="title">Produit : {{produit.title}}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()"> <ion-icon slot="icon-only" name="save"></ion-icon></ion-button>
+      <ion-button (click)="delete()"> <ion-icon slot="icon-only" name="trash"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input value="{{produit.title}}" rows="10" *ngIf="produit" ngDefaultControl [(ngModel)]="title"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-textarea value="{{produit.description}}" rows="5" *ngIf="produit" ngDefaultControl [(ngModel)]="description"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-textarea value="{{produit.prix}}" rows="5" *ngIf="produit" ngDefaultControl [(ngModel)]="prix"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <img src="../../assets/images/produit.jpg" />
+  </ion-item>
+
+</ion-content>
