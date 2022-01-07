@@ -14,9 +14,9 @@ export class Categorie_addPage implements OnInit {
   private categorie : FormGroup;
   private categorie2 : FormGroup;
   api : RestService;
-  id : string;
   title : string;
   description : string;
+  id_boutique : string;
   
 
   constructor(public restapi: RestService, 
@@ -25,7 +25,7 @@ export class Categorie_addPage implements OnInit {
     public router : Router,
     public formBuilder: FormBuilder) {
       this.categorie = this.formBuilder.group({
-        boutiqueID: [this.id] ,
+        id_boutique: [this.id_boutique] ,
         title: [''],
         description: [''],
       });
@@ -46,12 +46,12 @@ export class Categorie_addPage implements OnInit {
   
 
   save() {
-    console.log(this.id);
+
     this.description = this.categorie.value.description;
     this.title = this.categorie.value.title;
-    console.log(this.description);
-    this.categorie.setValue({boutiqueID: this.id, title: this.title, description: this.description})
-    console.log(this.categorie.value);
+    console.log(this.id_boutique);
+    this.categorie.setValue({id_boutique: this.id_boutique, title: this.title, description: this.description})
+   
     
 
     this.saveCategorie();
@@ -61,7 +61,7 @@ export class Categorie_addPage implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params : ParamMap)=> {
-      this.id=params.get('id');
+      this.id_boutique=params.get('id');
     });
   }
 }
