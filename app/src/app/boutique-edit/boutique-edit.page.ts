@@ -12,7 +12,6 @@ export class Boutique_editPage implements OnInit {
   boutique : any;
   categories : any;
   api : RestService;
-  id : string;
   title : string;
   description : string;
   boutiqueID : string;
@@ -32,7 +31,7 @@ export class Boutique_editPage implements OnInit {
     });
 
     await loading.present();
-    await this.api.getBoutique(this.id)
+    await this.api.getBoutique(this.boutiqueID)
       .subscribe(res => {
         console.log(res);
         this.boutique = res;
@@ -72,7 +71,7 @@ export class Boutique_editPage implements OnInit {
     });
 
     await loading.present();
-    await this.api.getCategories(this.id)
+    await this.api.getCategories(this.boutiqueID)
       .subscribe(res => {
         console.log(res);
         this.categories = res;
@@ -88,10 +87,11 @@ export class Boutique_editPage implements OnInit {
 
     console.log(this.description);
     console.log(this.title);
-    console.log(this.boutique._id);
+    console.log(this.boutique.boutiqueID);
 
     this.boutique.title = this.title;
     this.boutique.description = this.description;
+    this.boutique.
 
     this.saveBoutique();
 
@@ -105,11 +105,11 @@ export class Boutique_editPage implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params : ParamMap)=> {
-      this.id=params.get('id');
+      this.boutiqueID=params.get('id');
     });
     this.getCategories();
-    console.log("Current id: " + this.id);
-    this.getBoutique(this.id);
+    console.log("Current id: " + this.boutiqueID);
+    this.getBoutique(this.boutiqueID);
     
   }
 }

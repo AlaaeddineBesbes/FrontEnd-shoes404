@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title>
-      <span ngDefaultControl [(ngModel)]="title">Nouvelle Boutique</span>
+      <span ngDefaultControl [(ngModel)]="title">Ajouter Une Nouvelle Boutique</span>
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="save()">
@@ -19,7 +19,7 @@
 <ion-content padding>
   <form [formGroup]="boutique">
     <ion-item>
-      <ion-label>Nom de la boutique</ion-label>
+      <ion-label>Nom De La Boutique</ion-label>
     </ion-item>
     <ion-item>
       <ion-input type="text" formControlName="title"></ion-input>
