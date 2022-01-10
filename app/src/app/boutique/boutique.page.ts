@@ -16,7 +16,6 @@ export class BoutiquePage implements OnInit {
   id: string;
   title: string;
   description: string;
-  boutiqueID: string;
 
   constructor(public restapi: RestService,
     public loadingController: LoadingController,

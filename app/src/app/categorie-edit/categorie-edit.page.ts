@@ -15,7 +15,6 @@ export class Categorie_editPage implements OnInit {
   id : string;
   title : string;
   description : string;
-  categorieID : string;
 
   constructor(public restapi: RestService, 
     public loadingController: LoadingController, 
