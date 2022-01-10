@@ -15,7 +15,7 @@ export class ProduitPage implements OnInit {
   title : string;
   prix : string;
   description : string;
-  produitID : string;
+  id_categorie:string;
 
   constructor(public restapi: RestService, 
     public loadingController: LoadingController, 
@@ -39,6 +39,7 @@ export class ProduitPage implements OnInit {
         this.title = this.produit.title;
         this.description = this.produit.description;
         this.prix = this.produit.prix;
+        this.id_categorie=this.id_categorie;
         loading.dismiss();
       }, err => {
         console.log(err);
@@ -75,7 +76,7 @@ export class ProduitPage implements OnInit {
 
     this.produit.title = this.title;
     this.produit.description = this.description;
-
+    this.produit.id_categorie=this.id_categorie;
     this.saveProduit();
 
   }

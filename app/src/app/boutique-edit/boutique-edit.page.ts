@@ -91,7 +91,6 @@ export class Boutique_editPage implements OnInit {
 
     this.boutique.title = this.title;
     this.boutique.description = this.description;
-    this.boutique.
 
     this.saveBoutique();
 

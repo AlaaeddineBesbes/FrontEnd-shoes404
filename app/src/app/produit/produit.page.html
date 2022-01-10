@@ -2,12 +2,12 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button routerLink="/"><ion-icon slot="icon-only" name="home"></ion-icon></ion-button>
-      <ion-button *ngIf="produit" routerLink="/categorie/{{produit.categorieID}}">
+      <ion-button *ngIf="produit" routerLink="/categorie/{{produit.id_categorie}}">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>
-      <span *ngIf="produit" ngDefaultControl [(ngModel)]="title">Produit : {{produit.title}}</span>
+      <span *ngIf="produit" ngDefaultControl [(ngModel)]="title">Produit  : {{produit.title}}</span>
     </ion-title>
     <ion-buttons slot="end">
       <ion-button *ngIf="produit" routerLink="/produit-edit/{{produit._id}}"> <ion-icon slot="icon-only" name="create"></ion-icon></ion-button>
@@ -18,10 +18,10 @@
 <ion-content padding>
 
   <ion-item>
-    <span *ngIf="produit" ngDefaultControl [(ngModel)]="title">{{produit.description}}</span>
+    <span *ngIf="produit" ngDefaultControl [(ngModel)]="title">Description : {{produit.description}}</span>
   </ion-item>
   <ion-item>
-    <span *ngIf="produit" ngDefaultControl [(ngModel)]="title">{{produit.prix}} €</span>
+    <span *ngIf="produit" ngDefaultControl [(ngModel)]="title">Prix : {{produit.prix}} €</span>
   </ion-item>
 
   <ion-item>

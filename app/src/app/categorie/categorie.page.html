@@ -4,7 +4,7 @@
       <ion-button routerLink="/">
         <ion-icon slot="icon-only" name="home"></ion-icon>
       </ion-button>
-      <ion-button *ngIf="categorie" routerLink="/boutique/{{categorie.boutiqueID}}">
+      <ion-button *ngIf="categorie" routerLink="/boutique/{{categorie.id_boutique}}">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -24,18 +24,18 @@
 
 <ion-content padding>
   <ion-item>
-    <span *ngIf="categorie" ngDefaultControl [(ngModel)]="title">{{categorie.description}}</span>
+    <span *ngIf="categorie" ngDefaultControl [(ngModel)]="title">Description : {{categorie.description}}</span>
   </ion-item>
 
   <ion-list *ngFor="let produit of produits">
     <ion-card button="true" routerLink="/produit/{{produit._id}}">
       <img src="../../assets/images/produit.jpg" />
       <ion-card-header>
-        <ion-card-subtitle>{{produit.prix}} €</ion-card-subtitle>
-        <ion-card-title>{{produit.title}}</ion-card-title>
+        <ion-card-subtitle>Prix : {{produit.prix}} €</ion-card-subtitle>
+        <ion-card-title>Nom : {{produit.title}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        {{produit.description}}
+        Description : {{produit.description}}
       </ion-card-content>
     </ion-card>
   </ion-list>

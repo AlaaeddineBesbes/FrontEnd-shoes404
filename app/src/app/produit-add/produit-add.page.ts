@@ -13,10 +13,10 @@ export class Produit_addPage implements OnInit {
 
   private produit: FormGroup;
   api: RestService;
-  id: string;
   title: string;
   description: string;
   prix: string;
+  id_categorie:string;
 
 
   constructor(public restapi: RestService,
@@ -25,9 +25,9 @@ export class Produit_addPage implements OnInit {
     public router: Router,
     public formBuilder: FormBuilder) {
     this.produit = this.formBuilder.group({
-      categorieID: [this.id],
+      id_categorie: [this.id_categorie],
       title: [''],
-      prix: ['20'],
+      prix: [''],
       description: [''],
     });
     this.api = restapi;
@@ -47,12 +47,12 @@ export class Produit_addPage implements OnInit {
 
 
   save() {
-    console.log(this.id);
+    console.log(this.id_categorie);
     this.description = this.produit.value.description;
     this.title = this.produit.value.title;
     this.prix = this.produit.value.prix;
     console.log(this.description);
-    this.produit.setValue({ categorieID: this.id, title: this.title, description: this.description, prix: this.prix })
+    this.produit.setValue({ id_categorie: this.id_categorie, title: this.title, description: this.description, prix: this.prix })
     console.log(this.produit.value);
 
 
@@ -63,7 +63,7 @@ export class Produit_addPage implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = params.get('id');
+      this.id_categorie = params.get('id');
     });
   }
 }
